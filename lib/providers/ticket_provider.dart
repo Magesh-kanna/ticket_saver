@@ -8,11 +8,12 @@ final databaseHelperProvider = Provider<DatabaseHelper>(
   (ref) => DatabaseHelper(),
 );
 
-final ticketsStreamProvider = StreamProvider<List<Ticket>>((ref) {
+final ticketsStreamProvider = StreamProvider<List<Ticket>>((ref) async* {
   final dbHelper = ref.watch(databaseHelperProvider);
-  // Initial fetch to populate the stream
-  dbHelper.refreshTickets();
-  return dbHelper.ticketsStream;
+  // Yield initial fetch first to ensure we always have the starting snapshot
+  yield await dbHelper.getTickets();
+  // Then yield any subsequent events from the controller
+  yield* dbHelper.ticketsStream;
 });
 
 class TicketNotifier extends Notifier<void> {
@@ -61,6 +62,6 @@ final filteredTicketsProvider = Provider<List<Ticket>>((ref) {
         return matchesQuery && matchesDate;
       }).toList();
     },
-    orElse: () => [],
+    orElse: () => <Ticket>[],
   );
 });

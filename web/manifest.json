@@ -1,6 +1,6 @@
 {
-    "name": "ticket_saver",
-    "short_name": "ticket_saver",
+    "name": "Local Ticket Stash",
+    "short_name": "Local Ticket Stash",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

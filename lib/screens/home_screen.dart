@@ -58,9 +58,9 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
         extendBodyBehindAppBar: true,
         appBar: AppBar(
           title: ticketsAsync.when(
-            data: (tickets) => Text('Ticket Stash (${tickets.length})'),
-            loading: () => const Text('Ticket Stash'),
-            error: (_, __) => const Text('Ticket Stash'),
+            data: (tickets) => Text('Local Ticket Stash (${tickets.length})'),
+            loading: () => const Text('Local Ticket Stash'),
+            error: (_, __) => const Text('Local Ticket Stash'),
           ),
           actions: [
             IconButton(
