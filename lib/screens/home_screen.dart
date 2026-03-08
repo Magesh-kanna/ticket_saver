@@ -83,7 +83,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
           ),
           child: Column(
             children: [
-              const SizedBox(height: 110),
+              const SizedBox(height: 130),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 16.0),
                 child: Container(
@@ -104,7 +104,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                       ref.read(searchQueryProvider.notifier).state = value;
                     },
                     decoration: InputDecoration(
-                      hintText: 'Search Train or Stations...',
+                      hintText: 'Search...',
                       prefixIcon: const Icon(Icons.search, color: Colors.blue),
                       suffixIcon: _searchController.text.isNotEmpty
                           ? IconButton(
@@ -158,7 +158,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                             ),
                             const SizedBox(height: 16),
                             Text(
-                              'No tickets found, Please add your ticket',
+                              'No tickets found, \nPlease add your ticket',
                               textAlign: TextAlign.center,
                               style: TextStyle(
                                 fontSize: 18,

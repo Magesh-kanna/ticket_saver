@@ -60,7 +60,8 @@ final filteredTicketsProvider = Provider<List<Ticket>>((ref) {
                 ));
 
         return matchesQuery && matchesDate;
-      }).toList();
+      }).toList()
+        ..sort((a, b) => b.travelDate.compareTo(a.travelDate));
     },
     orElse: () => <Ticket>[],
   );
